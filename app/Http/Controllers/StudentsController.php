@@ -34,7 +34,7 @@ class StudentsController extends Controller
     $Student = new Students();
     $Student->Name_student = $request->Name;
     $Student->Age = $request->Age;
-    $Student->Promotion = $request->Promotion;
+    $Student->Promotion = $request->input('Promotion');
     $Student->save();
     if($Student->save()){
     return redirect('index')
@@ -58,12 +58,22 @@ public function UpdateStudent(Request $request,$id){
     ->update(
         [
         'Name_student' => $request->Name,
+        'Promotion' => $request->Promotion,
+        'Age' => $request->Age
         
         ]
     );
     return redirect('index')->with("status","Student Update Successfully");
     
 
+}
+public function DeleteStudent($id){
+    
+    $DeleteStudent = Students::where("Id",$id);
+    $DeleteStudent->delete();
+    if($DeleteStudent){
+        return redirect('index')->with("status","Student Deleted successfully");
+    }
 }
 
 }

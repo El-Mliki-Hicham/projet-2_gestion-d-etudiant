@@ -17,7 +17,7 @@
     @foreach ($promotion as $item)
         
   
-  <option value="{{$item->Id}}">{{$item->Name_Promotion}}</option>
+  <option value="{{$item->Id_promotion}}">{{$item->Name_Promotion}}</option>
     @endforeach
 </select>
   

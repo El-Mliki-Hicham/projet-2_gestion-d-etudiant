@@ -16,13 +16,13 @@
         <select class="form-control" list="datalistOptions" id="exampleDataList" name="Promotion" placeholder="--Please choose an option--">
    
     
-            <option  selected="true" disabled="disabled"value="{{$value->Id}}">{{$value->Name_Promotion}}</option>
+            <option  selected="true" disabled="disabled"value="{{$value->Id_promotion}}">{{$value->Name_Promotion}}</option>
             @endforeach   
        
             @foreach ($promotion as $item)
             
       
-      <option value="{{$item->Id}}">{{$item->Name_Promotion}}</option>
+      <option value="{{$item->Id_promotion}}">{{$item->Name_Promotion}}</option>
         @endforeach
     </select>
       

@@ -22,8 +22,7 @@
             <td> {{$item->Name_Promotion}}</td>
             <td>
                <a href="Edit/{{$item->Id}}"> <button type="button"  class="btn  btn-warning">Edit</button></a>
-                {{-- <button type="button" class="btn btn-danger">Middle</button>    --}}
-                 
+               <a href="Delete/{{$item->Id}}"> <button type="button"  class="btn  btn-danger">Delete</button></a>
                 </td>
 
         </tr>

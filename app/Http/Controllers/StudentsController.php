@@ -7,9 +7,17 @@ use Illuminate\Http\Request;
 
 class StudentsController extends Controller
 {
+    private $promotionController= null;
+
+    public function __construct(){
+        $promotionController= $this->promotionController = new PromotionsController;
+        return $promotionController;    
+    
+        
+    }
     public function index(){
         $Student= Students::select("*")
-        ->join("promotions","students.Id","=","promotions.Id")
+        ->join("promotions","students.Promotion","=","promotions.Id_promotion")
         ->get();
         return view('pages.index',compact('Student'));
 
@@ -24,12 +32,38 @@ class StudentsController extends Controller
     public function AddStudent(Request $request){
 
     $Student = new Students();
-    $Student->Name_student = $request->input('Name');
+    $Student->Name_student = $request->Name;
+    $Student->Age = $request->Age;
+    $Student->Promotion = $request->Promotion;
     $Student->save();
     if($Student->save()){
     return redirect('index')
-        ->with('status','Student Added Successfully');
+    ->with('status','Student Added Successfully');
     }
 
 }
+
+public function EditStudent($id){
+    
+    $promotion = $this->promotionController->index();
+    $Student= Students::select("*")
+    ->join("promotions","students.Promotion","=","promotions.Id_promotion")
+    ->where('students.Id',$id)
+    ->get();
+        return view('pages.Edit',compact('Student',"promotion"));
+}
+public function UpdateStudent(Request $request,$id){
+
+    $Student = Students::where('Id',$id)
+    ->update(
+        [
+        'Name_student' => $request->Name,
+        
+        ]
+    );
+    return redirect('index')->with("status","Student Update Successfully");
+    
+
+}
+
 }

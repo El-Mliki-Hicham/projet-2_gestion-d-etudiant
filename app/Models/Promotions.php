@@ -9,5 +9,5 @@ class Promotions extends Model
 {
     use HasFactory;
     protected $cul = ['Name_Promotion'];
-
+    public $timestamps = false;
 }

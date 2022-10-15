@@ -20,6 +20,12 @@
             <td> {{$item->Name_student}}</td>
             <td> {{$item->Age}}</td>
             <td> {{$item->Name_Promotion}}</td>
+            <td>
+               <a href="Edit/{{$item->Id}}"> <button type="button"  class="btn  btn-warning">Edit</button></a>
+                {{-- <button type="button" class="btn btn-danger">Middle</button>    --}}
+                 
+                </td>
+
         </tr>
         @empty
 
@@ -29,3 +35,6 @@
 <a href="/Add">
     <button type="button" class="btn btn-primary">Ajouter</button>
 </a>
+
+
+  

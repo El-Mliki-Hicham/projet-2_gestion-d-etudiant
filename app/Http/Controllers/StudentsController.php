@@ -30,7 +30,11 @@ class StudentsController extends Controller
     }
 
     public function AddStudent(Request $request){
-
+        $validated = $request->validate([
+            'Name' => 'required',
+            // 'Name' => 'required|unique:posts|max:255',
+            
+        ]);
     $Student = new Students();
     $Student->Name_student = $request->Name;
     $Student->Age = $request->Age;

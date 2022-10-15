@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Promotions extends Model
 {
     use HasFactory;
+    protected $cul = ['Name_Promotion'];
+
 }

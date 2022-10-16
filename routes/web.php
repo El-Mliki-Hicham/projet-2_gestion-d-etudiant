@@ -23,3 +23,5 @@ Route::post('AddStudent',[StudentsController::class,"AddStudent"]);
 Route::get('Edit/{id}',[StudentsController::class,"EditStudent"]);
 Route::post('Update/{id}',[StudentsController::class,"UpdateStudent"]);
 Route::get('Delete/{id}',[StudentsController::class,"DeleteStudent"]);
+Route::get('Psearch',[StudentsController::class,"Psearch"]);
+Route::get('search',[StudentsController::class,"search"]);

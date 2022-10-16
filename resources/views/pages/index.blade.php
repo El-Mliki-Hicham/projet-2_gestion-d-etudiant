@@ -1,8 +1,10 @@
 @include('layouts.header')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 
 @if (session('status'))
 <h6 class="alert alert-success">{{ session('status') }}</h6>
 @endif
+<input type="text" id="search">
 <table class="table">
     <thead>
         <tr>
@@ -12,7 +14,7 @@
             <th scope="col">Promotion</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody id="tbody">
 
         @forelse ($Student as $item)
         <tr>
@@ -34,6 +36,20 @@
 <a href="/Add">
     <button type="button" class="btn btn-primary">Ajouter</button>
 </a>
+
+<script type="text/javascript">
+    $('#search').on('keyup',function(){
+    $value=$(this).val();   
+    $.ajax({
+    type : 'get',
+    url : '{{URL::to('search')}}',
+    data:{'key':$value},
+    success:function(data){
+    $('#tbody').html(data);
+    }
+    });
+    })
+    </script>
 
 
   

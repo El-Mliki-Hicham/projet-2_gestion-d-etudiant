@@ -1,13 +1,6 @@
 @include('layouts.header')
 
 <div style="width: 500px">
-
-
-      {{-- @foreach ($errors->all() as $error)
-      <li style="color: red">{{$error}} </li> --}}
-      
-       
-    
     
 <form action="{{url('AddStudent')}}" method="POST" > 
     @csrf
@@ -23,6 +16,9 @@
   
     <label for="exampleFormControlInput1" class="form-label">Age</label>
     <input type="number" name="Age" class="form-control" id="exampleFormControlInput1" placeholder="Age ">    
+    @error('Age')
+    <div class="alert alert-danger">{{ $message }}</div>
+    @enderror
     <label for="exampleFormControlInput1" class="form-label">Promotion</label>
     <select class="form-control" list="datalistOptions" id="exampleDataList" name="Promotion" placeholder="--Please choose an option--">
 
@@ -33,6 +29,9 @@
   <option value="{{$item->Id_promotion}}">{{$item->Name_Promotion}}</option>
     @endforeach
 </select>
+@error('Promotion')
+<div class="alert alert-danger">{{ $message }}</div>
+@enderror
   
     <input type="submit" value="Ajouter">
 </div>

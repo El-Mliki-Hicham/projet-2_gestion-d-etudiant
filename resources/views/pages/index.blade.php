@@ -23,9 +23,9 @@
             <td> {{$item->Age}}</td>
             <td> {{$item->Name_Promotion}}</td>
             <td>
-               <a href="Edit/{{$item->Id}}"> <button type="button"  class="btn  btn-warning">Edit</button></a>
-               <a href="Delete/{{$item->Id}}"> <button type="button"  class="btn  btn-danger">Delete</button></a>
-                </td>
+                <a href="Edit/{{$item->Id}}"> <button type="button" class="btn  btn-warning">Edit</button></a>
+                <a href="Delete/{{$item->Id}}"> <button type="button" class="btn  btn-danger">Delete</button></a>
+            </td>
 
         </tr>
         @empty
@@ -37,6 +37,3 @@
     <button type="button" class="btn btn-primary">Ajouter</button>
 </a>
 <script type="text/javascript" src="{{ URL::asset('js/search.js') }}"></script>
-
-
-  

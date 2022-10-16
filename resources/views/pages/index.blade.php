@@ -36,20 +36,7 @@
 <a href="/Add">
     <button type="button" class="btn btn-primary">Ajouter</button>
 </a>
-
-<script type="text/javascript">
-    $('#search').on('keyup',function(){
-    $value=$(this).val();   
-    $.ajax({
-    type : 'get',
-    url : '{{URL::to('search')}}',
-    data:{'key':$value},
-    success:function(data){
-    $('#tbody').html(data);
-    }
-    });
-    })
-    </script>
+<script type="text/javascript" src="{{ URL::asset('js/search.js') }}"></script>
 
 
   

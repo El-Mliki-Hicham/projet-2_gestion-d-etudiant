@@ -3,10 +3,7 @@
 namespace App\Http\Controllers;
 use  App\Http\Controllers\PromotionsController;
 use App\Models\Students;
-use GuzzleHttp\Psr7\Response;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response as HttpResponse;
-use Illuminate\Support\Facades\DB;
 
 class StudentsController extends Controller
 {
@@ -114,24 +111,25 @@ public function search(Request $request)
 if($request->ajax()){
     $input = $request->key;
 $output="";
-$Students=Students::where('Name_student','LIKE','%'.$input."%")
+$Students=Students::where('Name_student','like','%'.$input."%")
+    ->orWhere('Name_Promotion','like','%'.$input."%")
+    ->orWhere('Id','like','%'.$input."%")
 ->join("promotions","students.Promotion","=","promotions.Id_promotion")
 ->get();
 if($Students)
 {
 foreach ($Students as $student) {
-$output.='<tr>'.
-'<td>'.$student->Id.'</td>'.
-'<td>'.$student->Name_student.'</td>'.
-'<td>'.$student->Age.'</td>'.
-'<td>'.$student->Name_Promotion.'</td>'.
-'<td>'.
-    
-    '<a href="Edit/{{'.$student->Id.'}}"> <button type="button"  class="btn  btn-warning">Edit</button></a>'.
-   '<a href="Delete/{{'.$student->Id.'}}"> <button type="button"  class="btn  btn-danger">Delete</button></a>'
-.'</td>'.
+$output.='<tr>
+<td>'.$student->Id.'</td>
+<td>'.$student->Name_student.'</td>
+<td>'.$student->Age.'</td>
+<td>'.$student->Name_Promotion.'</td>
+<td>
+<a href="Edit/'.$student->Id.'"><button type="button"  class="btn  btn-warning">Edit</button></a>
+<a href="Delete/'.$student->Id.'"><button type="button"  class="btn  btn-danger">Delete</button></a>
+<td>
 
-'</tr>';
+</tr>';
 }
 return Response($output);
    }

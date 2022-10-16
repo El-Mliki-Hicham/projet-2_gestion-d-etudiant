@@ -33,3 +33,22 @@
   #sidebar .custom-menu .btn.btn-primary:after{
     background-color: #44bef1 !important;
   }
+   .add-new {
+    float: right;
+    height: 40px;
+    font-weight: bold;
+    font-size: 12px;
+    text-shadow: none;
+    min-width: 120px;
+    border-radius: 50px;
+    line-height: 13px;
+    background-color: #44bef1;
+}
+ .add-new {
+    
+    margin-right: 4px;
+}
+.divAdd{
+    display: flex;
+    flex-direction: row-reverse;
+}

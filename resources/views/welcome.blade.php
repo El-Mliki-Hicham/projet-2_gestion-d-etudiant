@@ -22,6 +22,9 @@ $(document).ready(function(){
                     <input type="text" class="form-control searchInput" placeholder="Search&hellip;">
                 </div>
             </div>
+            <div class="col-sm-8 divAdd" >
+                <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
+            </div>
         </div>
       </div>
     <div class="table-responsive">

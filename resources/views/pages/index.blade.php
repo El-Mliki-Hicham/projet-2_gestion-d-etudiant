@@ -4,7 +4,7 @@
 @if (session('status'))
 <h6 class="alert alert-success">{{ session('status') }}</h6>
 @endif
-<input type="text" id="search">
+<input type="text" id="search">search
 <table class="table">
     <thead>
         <tr>

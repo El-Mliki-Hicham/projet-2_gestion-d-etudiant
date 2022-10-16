@@ -125,8 +125,8 @@ $output.='<tr>
 <td>'.$student->Age.'</td>
 <td>'.$student->Name_Promotion.'</td>
 <td>
-<a href="Edit/'.$student->Id.'"><button type="button"  class="btn  btn-warning">Edit</button></a>
-<a href="Delete/'.$student->Id.'"><button type="button"  class="btn  btn-danger">Delete</button></a>
+<a href="Edit/'.$student->Id.'" class="settings" title="Edit" data-toggle="tooltip"><i class="fa-regular fa-pen-to-square"></i>
+<a href="Delete/'.$student->Id.'"class="delete" title="Delete" data-toggle="tooltip"><i class="fa-solid fa-trash"></i></a>
 <td>
 
 </tr>';

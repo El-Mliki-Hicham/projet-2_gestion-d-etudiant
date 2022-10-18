@@ -46,4 +46,31 @@ public function Delete($id){
     Promotion::where('Id_promotion',$id)->Delete();
     return redirect('index')->with('status',"Delete Successfully");
 }
+
+
+public function search(Request $request)
+{
+if($request->ajax()){
+    $input = $request->key;
+$output="";
+$Promotion=Promotion::where('Name_promotion','like','%'.$input."%")
+    ->orWhere('Id_promotion','like','%'.$input."%")
+->get();
+if($Promotion)
+{
+foreach ($Promotion as $promotion) {
+$output.='<tr>
+<td>'.$promotion->Id_promotion.'</td>
+<td>'.$promotion->Name_promotion.'</td>
+<td>
+<a href="Edit/{{$value->Id_promotion}}"><button>Edit</button></a>
+<a href="Delete/{{$value->Id_promotion}}"><button>Delete</button></a>
+<td>
+
+</tr>';
+}
+return Response($output);
+   }
+   }
+}
 }

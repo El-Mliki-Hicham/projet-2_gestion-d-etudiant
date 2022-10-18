@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\StudentsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,11 +16,3 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('index',[StudentsController::class,"index"]);
-Route::get('Add',[StudentsController::class,"create"]);
-Route::post('AddStudent',[StudentsController::class,"AddStudent"]);
-Route::get('Edit/{id}',[StudentsController::class,"EditStudent"]);
-Route::post('Update/{id}',[StudentsController::class,"UpdateStudent"]);
-Route::get('Delete/{id}',[StudentsController::class,"DeleteStudent"]);
-Route::get('Psearch',[StudentsController::class,"Psearch"]);
-Route::get('search',[StudentsController::class,"search"]);

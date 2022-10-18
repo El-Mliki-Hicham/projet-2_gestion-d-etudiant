@@ -18,4 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('index',[PromotionController::class,'index']);
 Route::get('create',[PromotionController::class,'create']);
 Route::post('Add',[PromotionController::class,'store']);
+Route::get('Edit/{id}',[PromotionController::class,'Edit']);
+Route::post('Update/{id}',[PromotionController::class,'Update']);
+Route::get('Delete/{id}',[PromotionController::class,'Delete']);
 

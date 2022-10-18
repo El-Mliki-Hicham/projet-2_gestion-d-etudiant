@@ -25,4 +25,25 @@ public function store(Request $request){
 
 }
 
+public function Edit($id){
+
+    $promotion = Promotion::where('Id_promotion',$id)->get();
+    return view('Edit',compact('promotion'));
+}
+
+public function Update(Request $request,$id){
+
+    $promotion = Promotion::where('Id_promotion',$id)
+    ->Update([
+        "Name_promotion"=>$request->Name
+    ]);
+    return
+     redirect('index')->with("status","Update Successfully");
+}
+
+public function Delete($id){
+
+    Promotion::where('Id_promotion',$id)->Delete();
+    return redirect('index')->with('status',"Delete Successfully");
+}
 }

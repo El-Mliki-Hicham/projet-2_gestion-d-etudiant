@@ -15,6 +15,10 @@
         <tr>
             <th>{{$value->Id_promotion}}</th>
             <td>{{$value->Name_promotion}}</td>
+            <td>
+                <a href="Edit/{{$value->Id_promotion}}"><button>Edit</button></a>
+                <a href="Delete/{{$value->Id_promotion}}"><button>Delete</button></a>
+            </td>
         </tr>
         @endforeach
 

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PromotionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('index',[PromotionController::class,'index']);
+Route::get('create',[PromotionController::class,'create']);
+Route::post('Add',[PromotionController::class,'store']);
+

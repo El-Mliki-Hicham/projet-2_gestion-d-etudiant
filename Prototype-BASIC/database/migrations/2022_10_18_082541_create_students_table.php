@@ -23,7 +23,7 @@ return new class extends Migration
 
     });
     Schema::create('Promotion', function (Blueprint $table) {
-        $table->increments("Id_promotion")->nullable();
+        $table->increments("Id_promotion");
         $table->string('Name_promotion')->nullable();
         $table->unsignedInteger('StudentID')->nullable();
         $table->foreign('StudentID')

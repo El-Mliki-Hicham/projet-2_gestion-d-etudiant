@@ -13,10 +13,26 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('students', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
+    
+    Schema::create('Students', function (Blueprint $table) {
+        $table->increments("Id_student");
+        $table->string('First_name')->nullable();
+        $table->string('Last_name')->nullable();
+        $table->string('Email')->nullable();
+        $table->timestamps();
+
+    });
+    Schema::create('Promotion', function (Blueprint $table) {
+        $table->increments("Id_promotion")->nullable();
+        $table->string('Name_promotion')->nullable();
+        $table->unsignedInteger('StudentID')->nullable();
+        $table->foreign('StudentID')
+        ->references('Id_student')
+        ->on('Students')
+        ->onDelete('cascade');
+        $table->timestamps();
+
+    });
     }
 
     /**

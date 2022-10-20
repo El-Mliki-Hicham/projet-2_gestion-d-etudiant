@@ -21,6 +21,6 @@ Route::get('/', function () {
 Route::get('/index',[PromotionController::class,'index']);
 Route::get('/create',[PromotionController::class,'create']);
 Route::post('/store',[PromotionController::class,'store']);
-Route::get('/edit/{id}',[PromotionController::class,'edit']);
+Route::get('/Edit/{id}',[PromotionController::class,'edit']);
 Route::post('/update/{id}',[PromotionController::class,'update']);
-Route::get('/delete/{id}',[PromotionController::class,'delete']);
+Route::get('/Delete/{id}',[PromotionController::class,'delete']);

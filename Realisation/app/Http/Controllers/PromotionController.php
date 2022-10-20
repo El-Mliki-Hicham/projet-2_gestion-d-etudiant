@@ -25,5 +25,18 @@ class PromotionController extends Controller
         if($promotion->save()){
             return redirect("index")->with('save','Promotion has been saved');
         }
+
+    }
+    public function edit($id){
+
+        $promotion = Promotion::where('Id_promotion',$id)->get();
+        return view("edit",compact('promotion'));
+    }
+
+    public function delete($id){
+       $promotion =  Promotion::where("Id_promotion",$id)->delete();
+        if($promotion){
+            return redirect('index')->with("delete","promotion has been deleted");
+        }
     }
 }

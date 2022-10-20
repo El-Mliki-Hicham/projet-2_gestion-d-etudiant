@@ -63,8 +63,8 @@ $output.='<tr>
 <td>'.$promotion->Id_promotion.'</td>
 <td>'.$promotion->Name_promotion.'</td>
 <td>
-<a href="Edit/{{$value->Id_promotion}}"><button>Edit</button></a>
-<a href="Delete/{{$value->Id_promotion}}"><button>Delete</button></a>
+<a href="Edit/'.$promotion->Id_promotion.'"><button>Edit</button></a>
+<a href="Delete/'.$promotion->Id_promotion.'"><button>Delete</button></a>
 <td>
 
 </tr>';

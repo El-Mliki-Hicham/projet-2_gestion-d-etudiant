@@ -7,5 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Promotion extends Model
 {
-    use HasFactory;
+   protected $table=[
+      'name_promotion'
+   ];
+  public $timestamps = false;
 }

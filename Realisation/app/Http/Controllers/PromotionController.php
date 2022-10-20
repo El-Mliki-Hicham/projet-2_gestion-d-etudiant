@@ -12,7 +12,7 @@ class PromotionController extends Controller
     private $index ; 
     private  $Student = null;
 
-    
+
 public function __construct()
 {
 $this->Student = new StudentController();
@@ -42,7 +42,11 @@ $this->Student = new StudentController();
 
     }
     public function edit($id){
-        $Student =$this->index;
+        // $Student =$this->index;
+
+        $Student = Promotion::where('Id_promotion',$id)
+        ->join("students","promotion.StudentID","=","students.Id_student")
+        ->get();
         $promotion = Promotion::where('Id_promotion',$id)->get();
         return view("edit",compact('promotion','Student'));
     }

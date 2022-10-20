@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Student extends Model
 {
     use HasFactory;
+
+    protected $table = "students";
+   protected $fulible=[
+    "Id_student","First_name","Last_name","Email"
+   ];
+  public $timestamps = false;
 }

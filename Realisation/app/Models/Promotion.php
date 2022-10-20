@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Promotion extends Model
 {
-   protected $table=[
+   protected $table = "promotion";
+   protected $fulible=[
       'name_promotion'
    ];
   public $timestamps = false;

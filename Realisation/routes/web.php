@@ -18,4 +18,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/index',[PromotionController::class,'Afficher']);
+Route::get('/index',[PromotionController::class,'index']);
+Route::get('/create',[PromotionController::class,'create']);
+Route::post('/store',[PromotionController::class,'store']);
+Route::get('/edit/{id}',[PromotionController::class,'edit']);
+Route::post('/update/{id}',[PromotionController::class,'update']);
+Route::get('/delete/{id}',[PromotionController::class,'delete']);

@@ -1,12 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <h1>{{$promotion}}</h1>
-</body>
-</html>
+{{-- {{$promotion}} --}}
+
+<table>
+
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nom promotion</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    @foreach ($promotion as $item)
+    <tbody>
+        <tr>
+            <td>{{$item->Id_promotion}}</td>
+            <td>{{$item->Name_promotion}}</td>
+            <td>
+                <a href="Edit/{{$item->Id_promotion}}">Edit</a>
+                <a href="Delete/{{$item->Id_promotion}}">Delete</a>
+            </td>
+        </tr>
+    </tbody>
+    @endforeach
+</table>

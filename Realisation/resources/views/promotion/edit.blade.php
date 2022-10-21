@@ -1,3 +1,4 @@
+@include('layouts.head')
 {{$Student}}
 
 
@@ -5,8 +6,9 @@
     
 <form  method="POST" action="{{url("update")}}/{{$item->Id_promotion}}">
     @csrf
-    <input type="text" name="name" value="{{$item->Name_promotion}}">
-    <button>update</button>
+    <p class="text" onclick="change()">{{$item->Name_promotion}}</p>
+    <input type="text" class="input" name="name" value="{{$item->Name_promotion}}">
+    <button class="btn">update</button>
 </form>
 @endforeach
 
@@ -38,4 +40,6 @@
         @endforeach
     </tbody>
 </table>
+
+<script src="{{asset('js/formEdit.js')}}"></script>
 <a href="{{url('index')}}"><button>return</button></a>

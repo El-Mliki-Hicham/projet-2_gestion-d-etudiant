@@ -1,3 +1,5 @@
+
+@include('layouts.head')
 <form method="POST" action="store">
 @csrf
 @error('name')   

@@ -4,6 +4,9 @@ body {
     font-family: 'Varela Round', sans-serif;
     font-size: 13px;
 }
+.container{
+    margin-left: 210px;
+}
 .table-responsive {
     margin: 30px 30px;
     width: 800px;

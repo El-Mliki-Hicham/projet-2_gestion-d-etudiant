@@ -1,3 +1,4 @@
+
 @include('layouts.head')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 
@@ -37,7 +38,9 @@ $(document).ready(function(){
                 </div>
             </div>
             <div class="col-sm-8 divAdd" >
+            <a href="create">
                 <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
+            </a>
             </div>
         </div>
       </div>

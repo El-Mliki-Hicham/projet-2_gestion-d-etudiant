@@ -4,29 +4,31 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Promotion;
-use App\Http\Controllers\StudentController;
+use App\Http\Controllers\StudentsController;
+use App\Models\Student;
+
 class PromotionController extends Controller
 {
 
 
-    private $index ; 
-    private  $Student = null;
+//     private $index ; 
+//     private  $Student = null;
 
 
-public function __construct()
-{
-$this->Student = new StudentController();
- $this->index = $this->Student->index();
+// public function __construct()
+// {
+// $this->Student = new StudentsController();
+//  $this->index = $this->Student->index();
 
- return $this->index;
-}
+//  return $this->index;
+// }
 
     public function index(){
         $promotion = Promotion::all();
-        return view('index',compact("promotion"));
+        return view('promotion.index',compact("promotion"));
     }
     public function create(){
-        return view('create');
+        return view('promotion.create');
     }
     public function store(Request $request){
 
@@ -37,30 +39,30 @@ $this->Student = new StudentController();
         $promotion->Name_promotion = $request->name;
         $promotion->save();
         if($promotion->save()){
-            return redirect("index")->with('save','Promotion has been saved');
+            return redirect("promotion.index")->with('save','Promotion has been saved');
         }
 
     }
     public function edit($id){
         // $Student =$this->index;
 
-        $Student = Promotion::where('Id_promotion',$id)
-        ->join("students","promotion.StudentID","=","students.Id_student")
+        $Student = Student::where('PromotionID',$id)
+        ->join("promotion","students.PromotionID","=","promotion.Id_promotion")
         ->get();
         $promotion = Promotion::where('Id_promotion',$id)->get();
-        return view("edit",compact('promotion','Student'));
+        return view("promotion.edit",compact('promotion','Student'));
     }
 
     public function delete($id){
        $promotion =  Promotion::where("Id_promotion",$id)->delete();
         if($promotion){
-            return redirect('index')->with("delete","promotion has been deleted");
+            return redirect('promotion.index')->with("delete","promotion has been deleted");
         }
     }
 
     public function update(Request $request, $id){
 
-        $promotion = Promotion::where("Id_promotion",$id)->update([
+         Promotion::where("Id_promotion",$id)->update([
                     "Name_promotion" => $request->input('name'),
 
                 ]);

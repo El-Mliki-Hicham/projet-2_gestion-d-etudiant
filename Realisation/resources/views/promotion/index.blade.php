@@ -1,5 +1,5 @@
 {{-- {{$promotion}} --}}
-
+<a href="create"><button>ajouter</button></a>
 <table>
 
     <thead>

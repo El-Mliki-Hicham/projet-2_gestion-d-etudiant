@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Promotion;
 use App\Models\Student;
 use Illuminate\Http\Request;
 
@@ -40,7 +41,20 @@ class StudentsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $id =  $request->id;
+        // $request->validate([
+        //     'firt_name'=>['required', 'string', 'max:255'],
+        //     'email'=>['required', 'email'],
+        //     'last_name'=>['required', 'string', 'max:255']
+        // ]);
+
+        $Student=new Student();
+        $Student->First_name = $request->first_name;
+        $Student->Last_name = $request->last_name;
+        $Student->Email = $request->email;
+        $Student->PromotionID = $id;
+        $Student->save();
+        return redirect("Edit/".$id);
     }
 
     /**
@@ -62,7 +76,8 @@ class StudentsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $Student = Student::where('Id_student',$id)->get();
+        return view("student.edit",compact('Student'));   
     }
 
     /**

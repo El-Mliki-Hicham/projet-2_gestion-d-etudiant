@@ -30,7 +30,7 @@
                 <td>{{$item->Last_name}}</td>
                 <td>{{$item->Email}}</td>
                 <td>
-                    <a href="student/Edit/{{$item->Id_promotion}}">Edit</a>
+                    <a href="{{url('student/Edit')}}/{{$item->Id_promotion}}">Edit</a>
                     <a href="Delete/{{$item->Id_student}}">Delete</a>
                
                 </td>
@@ -38,3 +38,4 @@
         @endforeach
     </tbody>
 </table>
+<a href="{{url('index')}}"><button>return</button></a>

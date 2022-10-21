@@ -1,12 +1,15 @@
-{{$id}} 
-<form method="POST" action="store">
+
+ 
+<form method="POST" action="{{url("student/store")}}">
 @csrf
-@error('name')   
+@error('first_name')   
 {{$message}}
 @enderror
-<input type="text"  name="first_name">
-<input type="text"  name="last_name">
-<input type="text"  name="email">
-<input type="hden" value=""  name="promotion">
+<input type="text"  name="first_name"><br>
+<input type="text"  name="last_name"><br>
+<input type="text"  name="email"><br>
+<input type="hidden" value="{{$id}}"  name="id">
 <button>click</button>
 </form>
+
+<a href="index"><button>return</button></a>

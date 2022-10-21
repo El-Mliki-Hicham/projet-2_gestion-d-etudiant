@@ -39,7 +39,7 @@ class PromotionController extends Controller
         $promotion->Name_promotion = $request->name;
         $promotion->save();
         if($promotion->save()){
-            return redirect("promotion.index")->with('save','Promotion has been saved');
+            return redirect("index")->with('save','Promotion has been saved');
         }
 
     }
@@ -56,7 +56,7 @@ class PromotionController extends Controller
     public function delete($id){
        $promotion =  Promotion::where("Id_promotion",$id)->delete();
         if($promotion){
-            return redirect('promotion.index')->with("delete","promotion has been deleted");
+            return redirect('index')->with("delete","promotion has been deleted");
         }
     }
 

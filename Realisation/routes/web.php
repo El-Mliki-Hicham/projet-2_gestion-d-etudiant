@@ -26,10 +26,10 @@ Route::get('/Edit/{id}',[PromotionController::class,'edit']);
 Route::post('/update/{id}',[PromotionController::class,'update']);
 Route::get('/Delete/{id}',[PromotionController::class,'delete']);
 
-Route::get('/student/index',[PromotionController::class,'index']);
-Route::get('/student/create/{id}',[PromotionController::class,'create']);
-Route::post('/student/store',[PromotionController::class,'store']);
-Route::get('/student/Edit/{id}',[PromotionController::class,'edit']);
-Route::post('/student/update/{id}',[PromotionController::class,'update']);
-Route::get('/student/Delete/{id}',[PromotionController::class,'delete']);
+Route::get('/student/index',[StudentsController::class,'index']);
+Route::get('/student/create/{id}',[StudentsController::class,'create']);
+Route::post('/student/store',[StudentsController::class,'store']);
+Route::get('/student/Edit/{id}',[StudentsController::class,'edit']);
+Route::post('/student/update/{id}',[StudentsController::class,'update']);
+Route::get('/student/Delete/{id}',[StudentsController::class,'delete']);
 

@@ -26,8 +26,8 @@ $(document).ready(function(){
 <div class="container">
     <div class="titleDiv">
     <p><i class="fa-solid fa-user-graduate iconStudent"> </i></p>
-    <h1 class="titleGestion"> Gestion d'etudiant</h1>
-    
+    <h1 class="titleGestion">Gestion des apprenants</h1>
+    		
     </div>
     <div class="card cadre-search">
         <div class="card-body">

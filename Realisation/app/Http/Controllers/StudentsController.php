@@ -15,11 +15,8 @@ class StudentsController extends Controller
      */
     public function index()
     {
-      
             $Student = Student::select("*")->get();
-            return $Student;
-           
-        
+            return $Student;   
     }
 
     /**
@@ -28,8 +25,7 @@ class StudentsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create($id)
-    {
-        
+    { 
         return view("Student.create",compact("id"));
     }
 
@@ -42,11 +38,11 @@ class StudentsController extends Controller
     public function store(Request $request)
     {
       $id =  $request->id;
-        // $request->validate([
-        //     'firt_name'=>['required', 'string', 'max:255'],
-        //     'email'=>['required', 'email'],
-        //     'last_name'=>['required', 'string', 'max:255']
-        // ]);
+        $request->validate([
+            'firt_name'=>[ 'string', 'max:255'],
+            'last_name'=>['string', 'max:255'],
+            'email'=>['email']
+        ]);
 
         $Student=new Student();
         $Student->First_name = $request->first_name;
@@ -89,6 +85,11 @@ class StudentsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'firt_name'=>[ 'string', 'max:255'],
+            'email'=>['required','email'],
+            'last_name'=>['string', 'max:255']
+        ]);
         Student::where("Id_student",$id)->update([
             "First_name" => $request->first_name,
             'Last_name' => $request->last_name,

@@ -47,7 +47,6 @@ public function Delete($id){
     return redirect('index')->with('status',"Delete Successfully");
 }
 
-
 public function search(Request $request)
 {
 if($request->ajax()){

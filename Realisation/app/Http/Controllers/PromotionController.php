@@ -69,4 +69,34 @@ class PromotionController extends Controller
             $url="Edit/".$id;
                 return redirect($url)->with("edit","promotion has been updated");
         }
+
+
+
+        public function search(Request $request)
+        {
+        if($request->ajax()){
+            $input = $request->key;
+        $output="";
+        $Promotion=Promotion::where('Name_promotion','like','%'.$input."%")
+            ->orWhere('Id_promotion','like','%'.$input."%")
+        ->get();
+        if($Promotion)
+        {
+        foreach ($Promotion as $promotion) {
+        $output.='<tr>
+        <td>'.$promotion->Id_promotion.'</td>
+        <td>'.$promotion->Name_promotion.'</td>
+        <td>
+        <a href="Edit/'.$promotion->Id_promotion.'" class="settings" title="Edit" data-toggle="tooltip"><i class="fa-regular fa-pen-to-square"></i></a>
+        <a href="Delete/'.$promotion->Id_promotion.'" class="delete" title="Delete" data-toggle="tooltip"><i class="fa-solid fa-trash"></i></a>
+        <td>
+        
+        </tr>';
+        }
+        return Response($output);
+           }
+           }
+        }
 }
+
+

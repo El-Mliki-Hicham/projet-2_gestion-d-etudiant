@@ -33,7 +33,7 @@ $(document).ready(function(){
             <div class="col-sm-4">
                 <div class="search-box">
                     <i class="material-icons">&#xE8B6;</i>
-                    <input type="text" class="form-control searchInput" placeholder="Search&hellip;">
+                    <input type="text" id="search" class="form-control  searchInput" placeholder="Search&hellip;">
                 </div>
             </div>
             <div class="col-sm-8 divAdd" >
@@ -52,7 +52,7 @@ $(document).ready(function(){
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="tbody">
                     @forelse  ($promotion as $item)
                     <tr>
                         <td scope="row">{{$item->Id_promotion}}</td>
@@ -68,6 +68,7 @@ $(document).ready(function(){
                    </tr>                                     
                 </tbody>
             </table>
+            <script src="js/search.js"></script>
            
         </div>
     </div>        

@@ -105,11 +105,11 @@ class StudentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, $id)
+    public function destroy($id,$iid)
     {
         $promotion =  Student::where("Id_student",$id)->delete();
         if($promotion){
-            $url="Edit/".$request->id;
+            $url="Edit/".$iid;
             return redirect($url)->with("delete","promotion has been deleted");
         }
     }

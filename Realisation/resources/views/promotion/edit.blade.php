@@ -31,7 +31,7 @@
                 <td>{{$item->Email}}</td>
                 <td>
                     <a href="{{url('student/Edit')}}/{{$item->Id_student}}">Edit</a>
-                    <a href="{{url('/student/Delete/')}}/{{$item->Id_student}}">Delete</a>
+                    <a href="{{url('/student/Delete/')}}/{{$item->Id_student}}/{{$item->PromotionID}}">Delete</a>
                
                 </td>
             </tr>

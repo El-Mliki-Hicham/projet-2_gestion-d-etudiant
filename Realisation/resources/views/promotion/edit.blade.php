@@ -30,8 +30,8 @@
                 <td>{{$item->Last_name}}</td>
                 <td>{{$item->Email}}</td>
                 <td>
-                    <a href="{{url('student/Edit')}}/{{$item->Id_promotion}}">Edit</a>
-                    <a href="Delete/{{$item->Id_student}}">Delete</a>
+                    <a href="{{url('student/Edit')}}/{{$item->Id_student}}">Edit</a>
+                    <a href="{{url('/student/Delete/')}}/{{$item->Id_student}}">Delete</a>
                
                 </td>
             </tr>

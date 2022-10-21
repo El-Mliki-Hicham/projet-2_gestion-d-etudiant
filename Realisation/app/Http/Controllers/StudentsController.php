@@ -89,7 +89,14 @@ class StudentsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Student::where("Id_student",$id)->update([
+            "First_name" => $request->first_name,
+            'Last_name' => $request->last_name,
+            'Email' => $request->email,
+
+        ]);
+    $url="Edit/".$request->id;
+        return redirect($url)->with("edit","promotion has been updated");
     }
 
     /**
@@ -98,8 +105,12 @@ class StudentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        $promotion =  Student::where("Id_student",$id)->delete();
+        if($promotion){
+            $url="Edit/".$request->id;
+            return redirect($url)->with("delete","promotion has been deleted");
+        }
     }
 }

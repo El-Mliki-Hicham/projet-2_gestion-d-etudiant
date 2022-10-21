@@ -3,9 +3,12 @@
 
 @foreach ($Student as $item)
     
-<form  method="POST" action="{{url("update")}}/{{$item->student}}">
+<form  method="POST" action="{{url("student/update")}}/{{$item->Id_student}}">
     @csrf
-    <input type="text" name="name" value="{{$item->Name_student}}">
+    <input type="text" name="first_name" value="{{$item->First_name}}"><br>
+    <input type="text" name="last_name" value="{{$item->Last_name}}"><br>
+    <input type="text" name="email" value="{{$item->Email}}"><br>
+    <input type="hidden" name="id" value="{{$item->PromotionID}}"><br>
     <button>update</button>
 </form>
 @endforeach

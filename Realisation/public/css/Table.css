@@ -5,7 +5,7 @@ body {
     font-size: 13px;
 }
 .container{
-    margin-left: 210px;
+    margin-left: auto;
 }
 .table-responsive {
     margin: 30px 30px;

@@ -39,7 +39,11 @@
            </div>
            <input type="hidden" value="{{$id}}"  name="id">
        </form>
-       <button type="button" class="btn btn-info return-btn">Return</button>
+       {{-- <a href="{{url('/Edit')}}/{{$item->PromotionID}}"><button type="button" class="btn btn-info return-btn">Return</button></a> --}}
+       @php
+           echo "<a href=\"javascript:history.go(-1)\"><button type='button' class='btn btn-info return-btn'>Return</button></a>"
+       @endphp
+
    </div>
 </body>
 </html>

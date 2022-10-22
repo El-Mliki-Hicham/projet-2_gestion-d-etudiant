@@ -1,15 +1,46 @@
 
- 
-<form method="POST" action="{{url("student/store")}}">
-@csrf
-@error('first_name')   
-{{$message}}
-@enderror
-<input type="text"  name="first_name"><br>
-<input type="text"  name="last_name"><br>
-<input type="text"  name="email"><br>
-<input type="hidden" value="{{$id}}"  name="id">
-<button>click</button>
-</form>
+@include("layouts.head")
 
-<a href="index"><button>return</button></a>
+
+
+</head>
+<body>
+<div class="login-form">
+    <form method="POST" action="{{url("student/store")}}">
+        @csrf
+        <h2 class="text-center">Ajouter etudiant</h2>
+        <div class="form-group">
+            <input type="text" class="form-control" name="first_name" placeholder="Prenom">
+       </div>
+       <div class="errorAddStudent">
+        @error('last_name')
+        {{$message}}
+        @enderror
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" name="last_name" placeholder="Nom" >
+        </div>
+        <div class="errorAddStudent">
+         @error('last_name')
+         {{$message}}
+         @enderror
+         </div>
+         <div class="form-group">
+             <input type="text" class="form-control" name="email" placeholder="Email" >
+            </div>
+            <div class="errorAddStudent">
+             @error('email')
+             {{$message}}
+             @enderror
+             </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-info btn-block">Ajouter</button>
+           </div>
+           <input type="hidden" value="{{$id}}"  name="id">
+       </form>
+       <button type="button" class="btn btn-info return-btn">Return</button>
+   </div>
+</body>
+</html>
+<link rel="stylesheet" href="{{ asset('css/formAddStudent.css') }}">

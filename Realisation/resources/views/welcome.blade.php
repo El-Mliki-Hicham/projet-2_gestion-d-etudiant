@@ -1,67 +1,48 @@
  @include("layouts.head")
-<script>
-    $(document).ready(function(){
-        $('[data-toggle="tooltip"]').tooltip();
-    });
-    </script>
-    
-    @foreach ($promotion as $item)
-    
-<form  method="POST" action="{{url("update")}}/{{$item->Id_promotion}}">
-    @csrf
-    <p class="text" onclick="change()">{{$item->Name_promotion}}</p>
-    <input type="text" class="input" name="name" value="{{$item->Name_promotion}}">
-    <button class="btn">update</button>
-</form>
-@endforeach
-    
-    <div class="container">
-      
-        <div class="card cadre-search">
-            <div class="card-body">
-                <div class="col-sm-4">
-                    <div class="search-box">
-                        <i class="material-icons">&#xE8B6;</i>
-                        <input type="text" class="form-control searchInput" placeholder="Search&hellip;">
-                    </div>
-                </div>
-                <div class="col-sm-8 divAdd" >
-                <a href="{{url("student/create")}}/{{$item->Id_promotion}}"><button type="button"  class="btn btn-info add-new"><i class="fa fa-plus"></i> Ajouter Etudient</button>
-                </a>
-                </div>
+
+
+ <style>
+     .login-form {
+         width: 340px;
+         margin: 50px auto;
+     }
+     .login-form form {
+         margin-bottom: 15px;
+         background: #f7f7f7;
+         box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+         padding: 30px;
+     }
+     .login-form h2 {
+         margin: 0 0 15px;
+     }
+     .form-control, .btn {
+         min-height: 38px;
+         border-radius: 2px;
+     }
+
+ </style>
+ </head>
+ <body>
+ <div class="login-form">
+     <form action="/examples/actions/confirmation.php" method="post">
+         <h2 class="text-center">Ajouter Etudient</h2>
+         <div class="form-group">
+             <input type="text" class="form-control" name="first_name" placeholder="Prenom" required="required">
+        </div>
+         <div class="form-group">
+             <input type="text" class="form-control" name="last_name" placeholder="Nom" required="required">
+         </div>
+         <div class="form-group">
+             <input type="text" class="form-control" name="email" placeholder="Email" required="required">
+         </div>
+
+         <div class="form-group">
+             <button type="submit" class="btn btn-primary btn-block">Ajouter</button>
             </div>
-          </div>
-        <div class="table-responsive">
-            <div class="table-wrapper">
-               
-                <table class="table table-striped table-hover">
-                    <thead>
-                        <th>Id</th>
-                        <th>First name</th>
-                        <th>Last name</th>
-                        <th>Email</th>
-                        <th>Action</th>
-                    </thead>
-                    <tbody>
-                        @foreach ($Student as $item)
-                        <tr>
-                            <td>{{$item->Id_student}}</td>
-                            <td>{{$item->First_name}}</td>
-                            <td>{{$item->Last_name}}</td>
-                            <td>{{$item->Email}}</td>
-                            <td>
-                                <a href="{{url('student/Edit')}}/{{$item->Id_student}}">Edit</a>
-                                <a href="{{url('/student/Delete/')}}/{{$item->Id_student}}/{{$item->PromotionID}}">Delete</a>
-                           
-                            </td>
-                        </tr>
-                    @endforeach                                    
-                    </tbody>
-                </table>
-                <script src="{{asset('js/formEdit.js')}}"></script>
-                <a href="{{url('index')}}"><button>return</button></a>
-            </div>
-        </div>        
-    </div>     
-    </body>
-    
+
+        </form>
+        <button type="button" class="btn btn-info return-btn">Return</button>
+    </div>
+ </body>
+ </html>
+ <link rel="stylesheet" href="{{ asset('css/formAddStudent.css') }}">

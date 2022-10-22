@@ -26,6 +26,7 @@
                 <div class="col-sm-4">
                     <div class="search-box">
                         <i class="material-icons">&#xE8B6;</i>
+                        <input type="hidden" value="{{$item->Id_promotion}}" id="searchID">
                         <input type="text" id="search" class="form-control searchInput" placeholder="Search&hellip;">
                     </div>
                 </div>

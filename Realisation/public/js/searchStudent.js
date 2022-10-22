@@ -1,11 +1,11 @@
 
     $('#search').on('keyup',function(){
-    // const url = new URL("/searchStudent");
-    // let url = new URL("/",'searchStudent');
+        $id= $("#searchID").val();
+
     $value=$(this).val();
     $.ajax({
     type : 'get',
-    url : "../searchStudent/1",
+    url :  "../searchStudent/"+$id,
     // url : '{{URL::to('search')}}',
     data:{'key':$value},
     success:function(data){

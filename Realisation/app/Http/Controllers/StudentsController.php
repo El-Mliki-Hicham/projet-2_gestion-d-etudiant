@@ -16,7 +16,7 @@ class StudentsController extends Controller
     public function index()
     {
             $Student = Student::select("*")->get();
-            return $Student;   
+            return $Student;
     }
 
     /**
@@ -25,7 +25,7 @@ class StudentsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create($id)
-    { 
+    {
         return view("Student.create",compact("id"));
     }
 
@@ -73,7 +73,7 @@ class StudentsController extends Controller
     public function edit($id)
     {
         $Student = Student::where('Id_student',$id)->get();
-        return view("student.edit",compact('Student'));   
+        return view("student.edit",compact('Student'));
     }
 
     /**
@@ -113,5 +113,55 @@ class StudentsController extends Controller
             $url="Edit/".$iid;
             return redirect($url)->with("delete","promotion has been deleted");
         }
+    }
+
+    public function searchStudent(Request $request,$id){
+        // dd($id);
+        if($request->ajax()){
+
+            $input = $request->key;
+            $output="";
+            $Student=Student::
+            where([
+                ['Id_student', '=', $input],
+                ["PromotionID", '=', 18],
+            ])
+        ->orWhere([
+            ['First_name','like','%'.$input."%"],
+            ["PromotionID", '=', 18]
+            ])
+        ->orWhere([
+            ['Last_name','like','%'.$input."%"],
+            ["PromotionID", '=', 18]
+            ])
+        ->orWhere([
+            ['Email','like','%'.$input."%"],
+            ["PromotionID", '=', 18]
+            ])
+
+
+        ->join("promotion","students.PromotionID","=","promotion.Id_promotion")
+        ->get();
+        if($Student)
+        {
+
+            foreach ($Student as $student) {
+            $editURL = "../student/Edit/$student->Id_student";
+            $deleteURL = "../student/Delete/$student->Id_student/$student->PromotionID";
+        $output.='<tr>
+        <td>'.$student->Id_student.'</td>
+        <td>'.$student->First_name.'</td>
+        <td>'.$student->Last_name.'</td>
+        <td>'.$student->Email.'</td>
+        <td>
+        <a href="'.$editURL.'" class="settings" title="Edit" data-toggle="tooltip"><i class="fa-regular fa-pen-to-square"></i></a>
+        <a href="'.$deleteURL.'" class="delete" title="Delete" data-toggle="tooltip"><i class="fa-solid fa-trash"></i></a>
+        <td>
+
+        </tr>';
+        }
+        return Response($output);
+           }
+           }
     }
 }

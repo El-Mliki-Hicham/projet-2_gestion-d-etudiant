@@ -1,14 +1,14 @@
 @include("layouts.head")
 
-    
 
-    
+
+
     <div class="container">
-      
+
             <div class="card cadre-search">
                 <div class="card-body">
                     @foreach ($promotion as $item)
-    
+
                     <form  method="POST" class="formUpdate" action="{{url("update")}}/{{$item->Id_promotion}}">
                         @csrf
                         <h1 class="text" onclick="change()">Promotion : {{$item->Name_promotion}}</h1>
@@ -37,7 +37,7 @@
           </div>
         <div class="table-responsive">
             <div class="table-wrapper">
-               
+
                 <table class="table table-striped table-hover">
                     <thead>
                         <th>Id</th>
@@ -58,15 +58,15 @@
                                 <a href="{{url('/student/Delete/')}}/{{$item->Id_student}}/{{$item->PromotionID}}" class="delete" title="Delete" data-toggle="tooltip"><i class="fa-solid fa-trash"></i></a>
                                     </td>
                         </tr>
-                    @endforeach                                    
+                    @endforeach
                     </tbody>
                 </table>
                 <script src="{{asset('js/formEdit.js')}}"></script>
-                <script src="{{asset('js/search.js')}}"></script>
+                <script src="{{asset('js/searchStudent.js')}}"></script>
                 <a href="{{url('index')}}"><button class="btn btn-info return-btn">Return</button></a>
             </div>
-        </div>        
-    </div>     
+        </div>
+    </div>
     </body>
     <script>
         $(document).ready(function(){

@@ -11,17 +11,6 @@ class PromotionController extends Controller
 {
 
 
-//     private $index ; 
-//     private  $Student = null;
-
-
-// public function __construct()
-// {
-// $this->Student = new StudentsController();
-//  $this->index = $this->Student->index();
-
-//  return $this->index;
-// }
 
     public function index(){
         $promotion = Promotion::all();
@@ -90,7 +79,7 @@ class PromotionController extends Controller
         <a href="Edit/'.$promotion->Id_promotion.'" class="settings" title="Edit" data-toggle="tooltip"><i class="fa-regular fa-pen-to-square"></i></a>
         <a href="Delete/'.$promotion->Id_promotion.'" class="delete" title="Delete" data-toggle="tooltip"><i class="fa-solid fa-trash"></i></a>
         <td>
-        
+
         </tr>';
         }
         return Response($output);

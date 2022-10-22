@@ -126,18 +126,18 @@ class StudentsController extends Controller
                 ["PromotionID", '=', $id],
                 ['Id_student', '=', $input],
             ])
-        // ->orWhere([
-        //     ['First_name','like','%'.$input."%"],
-        //     ["PromotionID", '=', $id]
-        //     ])
-        // ->orWhere([
-        //     ['Last_name','like','%'.$input."%"],
-        //     ["PromotionID", '=', $id]
-        //     ])
-        // ->orWhere([
-        //     ['Email','like','%'.$input."%"],
-        //     ["PromotionID", '=', $id]
-        //     ])
+        ->orWhere([
+            ["PromotionID", '=', $id],
+            ['First_name','like','%'.$input."%"]
+            ])
+        ->orWhere([
+            ["PromotionID", '=', $id],
+            ['Last_name','like','%'.$input."%"]
+            ])
+        ->orWhere([
+            ["PromotionID", '=', $id],
+            ['Email','like','%'.$input."%"]
+            ])
 
 
         ->join("promotion","students.PromotionID","=","promotion.Id_promotion")

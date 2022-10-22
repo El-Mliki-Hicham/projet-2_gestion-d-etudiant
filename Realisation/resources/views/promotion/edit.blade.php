@@ -1,5 +1,4 @@
 @include('layouts.head')
-{{$Student}}
 
 
 @foreach ($promotion as $item)

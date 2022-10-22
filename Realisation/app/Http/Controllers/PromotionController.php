@@ -33,7 +33,7 @@ class PromotionController extends Controller
     public function store(Request $request){
 
         $request->validate([
-            'name'=>['required',"alpha_dash", 'string', 'max:255', 'unique:promotion,Name_promotion']
+            'name'=>['required',"regex:/^[a-zA-Z0-9\s]+$/", 'string', 'max:255', 'unique:promotion,Name_promotion']
         ]);
         $promotion =new Promotion;
         $promotion->Name_promotion = $request->name;

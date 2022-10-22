@@ -5,14 +5,18 @@
     });
     </script>
     
+    @foreach ($promotion as $item)
     
+<form  method="POST" action="{{url("update")}}/{{$item->Id_promotion}}">
+    @csrf
+    <p class="text" onclick="change()">{{$item->Name_promotion}}</p>
+    <input type="text" class="input" name="name" value="{{$item->Name_promotion}}">
+    <button class="btn">update</button>
+</form>
+@endforeach
     
     <div class="container">
-        <div class="titleDiv">
-        <p><i class="fa-solid fa-user-graduate iconStudent"> </i></p>
-        <h1 class="titleGestion"> Gestion d'etudiant</h1>
-        
-        </div>
+      
         <div class="card cadre-search">
             <div class="card-body">
                 <div class="col-sm-4">
@@ -22,7 +26,8 @@
                     </div>
                 </div>
                 <div class="col-sm-8 divAdd" >
-                    <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Ajouter Etudient</button>
+                <a href="{{url("student/create")}}/{{$item->Id_promotion}}"><button type="button"  class="btn btn-info add-new"><i class="fa fa-plus"></i> Ajouter Etudient</button>
+                </a>
                 </div>
             </div>
           </div>
@@ -31,28 +36,30 @@
                
                 <table class="table table-striped table-hover">
                     <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Etudent</th>						
-                            <th>Age</th>
-                            <th>Promotion</th>
-                            <th>Action</th>
-                        </tr>
+                        <th>Id</th>
+                        <th>First name</th>
+                        <th>Last name</th>
+                        <th>Email</th>
+                        <th>Action</th>
                     </thead>
                     <tbody>
+                        @foreach ($Student as $item)
                         <tr>
-                            <td>1</td>
-                            <td><a href="#"><img src="/examples/images/avatar/1.jpg" class="avatar" alt="Avatar"> Michael Holz</a></td>
-                            <td>04/10/2013</td>                        
-                            <td>Admin</td>
+                            <td>{{$item->Id_student}}</td>
+                            <td>{{$item->First_name}}</td>
+                            <td>{{$item->Last_name}}</td>
+                            <td>{{$item->Email}}</td>
                             <td>
-                                <a href="#" class="settings" title="Edit" data-toggle="tooltip"><i class="fa-regular fa-pen-to-square"></i></a>
-                                <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="fa-solid fa-trash"></i></a>
+                                <a href="{{url('student/Edit')}}/{{$item->Id_student}}">Edit</a>
+                                <a href="{{url('/student/Delete/')}}/{{$item->Id_student}}/{{$item->PromotionID}}">Delete</a>
+                           
                             </td>
-                       </tr>                                     
+                        </tr>
+                    @endforeach                                    
                     </tbody>
                 </table>
-               
+                <script src="{{asset('js/formEdit.js')}}"></script>
+                <a href="{{url('index')}}"><button>return</button></a>
             </div>
         </div>        
     </div>     

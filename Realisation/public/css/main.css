@@ -108,3 +108,8 @@
     font-size: 16px;
     color: red;
 }
+
+.formUpdate{
+    display: flex;
+    justify-content: space-between;
+}

@@ -56,7 +56,7 @@ class PromotionController extends Controller
     public function delete($id){
        $promotion =  Promotion::where("Id_promotion",$id)->delete();
         if($promotion){
-            return redirect('index')->with("status","promotion has been deleted");
+            return redirect('index')->with("status","Promotion has been deleted");
         }
     }
 
@@ -67,7 +67,7 @@ class PromotionController extends Controller
 
                 ]);
             $url="Edit/".$id;
-                return redirect($url)->with("status","promotion has been updated");
+                return redirect($url)->with("status","Promotion has been updated");
         }
 
 

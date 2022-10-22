@@ -90,7 +90,7 @@ class PromotionController extends Controller
    public function sessionDelete(Request $request){
         if($request->post()){
             $request->session()->forget("status");
-            return redirect('index');
+            return back();
         }else{
             return "hello";
         }

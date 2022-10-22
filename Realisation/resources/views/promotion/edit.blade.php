@@ -1,6 +1,14 @@
 @include("layouts.head")
 
+@if (session('status'))
+<h4 class="alert alert-success message-session">{{ session('status')}}
+<form action="{{url("sessionDelete")}}" method="POST">
+    @csrf
+<button class="btn-x" type="submit">X</button>
+</form>
+</h4>
 
+@endif
 
 
     <div class="container">
@@ -31,7 +39,7 @@
                     </div>
                 </div>
                 <div class="col-sm-8 divAdd" >
-                <a href="{{url("student/create")}}/{{$item->Id_promotion}}"><button type="button"  class="btn btn-info add-new"><i class="fa fa-plus"></i> Ajouter Etudient</button>
+                <a href="{{url("student/create")}}/{{$item->Id_promotion}}"><button type="button"  class="btn btn-info add-new"><i class="fa fa-plus"></i> Ajouter etudiant</button>
                 </a>
                 </div>
             </div>
@@ -42,8 +50,8 @@
                 <table class="table table-striped table-hover">
                     <thead>
                         <th>Id</th>
-                        <th>First name</th>
-                        <th>Last name</th>
+                        <th>Prenom</th>
+                        <th>Nom</th>
                         <th>Email</th>
                         <th>Action</th>
                     </thead>

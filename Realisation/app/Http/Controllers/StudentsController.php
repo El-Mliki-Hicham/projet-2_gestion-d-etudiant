@@ -50,7 +50,7 @@ class StudentsController extends Controller
         $Student->Email = $request->email;
         $Student->PromotionID = $id;
         $Student->save();
-        return redirect("Edit/".$id);
+        return redirect("Edit/".$id)->with('status','Student has been saved');
     }
 
     /**
@@ -97,7 +97,7 @@ class StudentsController extends Controller
 
         ]);
     $url="Edit/".$request->id;
-        return redirect($url)->with("edit","promotion has been updated");
+        return redirect($url)->with("status","promotion has been updated");
     }
 
     /**
@@ -111,7 +111,7 @@ class StudentsController extends Controller
         $promotion =  Student::where("Id_student",$id)->delete();
         if($promotion){
             $url="Edit/".$iid;
-            return redirect($url)->with("delete","promotion has been deleted");
+            return redirect($url)->with("status","promotion has been deleted");
         }
     }
 

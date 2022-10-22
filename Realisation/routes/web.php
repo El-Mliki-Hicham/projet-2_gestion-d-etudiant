@@ -27,6 +27,7 @@ Route::post('/update/{id}',[PromotionController::class,'update']);
 Route::get('/Delete/{id}',[PromotionController::class,'delete']);
 
 Route::get('search',[PromotionController::class,'search']);
+Route::post('sessionDelete',[PromotionController::class,'sessionDelete']);
 
 Route::get('/student/index',[StudentsController::class,'index']);
 Route::get('/student/create/{id}',[StudentsController::class,'create']);

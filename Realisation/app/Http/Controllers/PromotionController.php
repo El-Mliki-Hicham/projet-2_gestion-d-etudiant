@@ -33,13 +33,13 @@ class PromotionController extends Controller
     public function store(Request $request){
 
         $request->validate([
-            'name'=>['required', 'string', 'max:255', 'unique:promotion,Name_promotion']
+            'name'=>['required',"alpha_dash", 'string', 'max:255', 'unique:promotion,Name_promotion']
         ]);
         $promotion =new Promotion;
         $promotion->Name_promotion = $request->name;
         $promotion->save();
         if($promotion->save()){
-            return redirect("index")->with('save','Promotion has been saved');
+            return redirect("index")->with('status','Promotion has been saved');
         }
 
     }
@@ -56,7 +56,7 @@ class PromotionController extends Controller
     public function delete($id){
        $promotion =  Promotion::where("Id_promotion",$id)->delete();
         if($promotion){
-            return redirect('index')->with("delete","promotion has been deleted");
+            return redirect('index')->with("status","promotion has been deleted");
         }
     }
 
@@ -67,7 +67,7 @@ class PromotionController extends Controller
 
                 ]);
             $url="Edit/".$id;
-                return redirect($url)->with("edit","promotion has been updated");
+                return redirect($url)->with("status","promotion has been updated");
         }
 
 
@@ -97,6 +97,15 @@ class PromotionController extends Controller
            }
            }
         }
+
+   public function sessionDelete(Request $request){
+        if($request->post()){
+            $request->session()->forget("status");
+            return redirect('index');
+        }else{
+            return "hello";
+        }
+   }
 }
 
 

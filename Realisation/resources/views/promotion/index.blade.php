@@ -1,10 +1,18 @@
 
 @include('layouts.head')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-
+<div class="">
 @if (session('status'))
-<h6 class="alert alert-success">{{ session('status') }}</h6>
+<h4 class="alert alert-success message-session">{{ session('status')}}
+<form action="sessionDelete" method="POST">
+    @csrf
+<button class="btn-x" type="submit">X</button>
+</form>
+</h4>
+
 @endif
+</div>
+
 
 
 <script type="text/javascript" src="{{ URL::asset('js/search.js') }}"></script>

@@ -9,18 +9,19 @@ use App\Models\Student;
 
 class PromotionController extends Controller
 {
-
-
-
+//index : get data
     public function index(){
         $promotion = Promotion::all();
         return view('promotion.index',compact("promotion"));
     }
+
+//create :go to page create
     public function create(){
         return view('promotion.create');
     }
-    public function store(Request $request){
 
+// store : add data to db
+    public function store(Request $request){
         $request->validate([
             'name'=>['required',"regex:/^[a-zA-Z0-9\s]+$/", 'string', 'max:255', 'unique:promotion,Name_promotion']
         ]);
@@ -32,16 +33,16 @@ class PromotionController extends Controller
         }
 
     }
-    public function edit($id){
-        // $Student =$this->index;
 
+//edit : go to page edit
+    public function edit($id){
         $Student = Student::where('PromotionID',$id)
         ->join("promotion","students.PromotionID","=","promotion.Id_promotion")
         ->get();
         $promotion = Promotion::where('Id_promotion',$id)->get();
         return view("promotion.edit",compact('promotion','Student'));
     }
-
+//delete : delete data from db
     public function delete($id){
        $promotion =  Promotion::where("Id_promotion",$id)->delete();
         if($promotion){
@@ -49,6 +50,7 @@ class PromotionController extends Controller
         }
     }
 
+//update : update data from db
     public function update(Request $request, $id){
 
          Promotion::where("Id_promotion",$id)->update([
@@ -60,9 +62,8 @@ class PromotionController extends Controller
         }
 
 
-
-        public function search(Request $request)
-        {
+// search : live search in db
+    public function search(Request $request){
         if($request->ajax()){
             $input = $request->key;
         $output="";
@@ -87,14 +88,13 @@ class PromotionController extends Controller
            }
         }
 
-   public function sessionDelete(Request $request){
-        if($request->post()){
-            $request->session()->forget("status");
-            return back();
-        }else{
-            return "hello";
+//sessionDelete : delete session key
+    public function sessionDelete(Request $request){
+         if($request->post()){
+        $request->session()->forget("status");
+         return back();
         }
-   }
+    }
 }
 
 

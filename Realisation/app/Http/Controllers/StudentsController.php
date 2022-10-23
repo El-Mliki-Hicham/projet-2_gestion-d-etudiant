@@ -8,33 +8,21 @@ use Illuminate\Http\Request;
 
 class StudentsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+//index : get data
     public function index()
     {
             $Student = Student::select("*")->get();
             return $Student;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+//create :go to page create
     public function create($id)
     {
         return view("Student.create",compact("id"));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+// store : add data to db
     public function store(Request $request)
     {
       $id =  $request->id;
@@ -53,36 +41,14 @@ class StudentsController extends Controller
         return redirect("Edit/".$id)->with('status','Student has been saved');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+//edit : go to page edit
     public function edit($id)
     {
         $Student = Student::where('Id_student',$id)->get();
         return view("student.edit",compact('Student'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+//update : update data from db
     public function update(Request $request, $id)
     {
         $request->validate([
@@ -100,12 +66,8 @@ class StudentsController extends Controller
         return redirect($url)->with("status","promotion has been updated");
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
+//delete : delete data from db
     public function destroy($id,$iid)
     {
         $promotion =  Student::where("Id_student",$id)->delete();
@@ -115,6 +77,8 @@ class StudentsController extends Controller
         }
     }
 
+
+// search : live search in db
     public function searchStudent(Request $request,$id){
         // dd($id);
         if($request->ajax()){

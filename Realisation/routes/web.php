@@ -21,6 +21,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// promotion controller
 Route::get('/index',[PromotionController::class,'index']);
 Route::get('/create',[PromotionController::class,'create']);
 Route::post('/store',[PromotionController::class,'store']);
@@ -28,10 +29,14 @@ Route::get('/Edit/{id}',[PromotionController::class,'edit']);
 Route::post('/update/{id}',[PromotionController::class,'update']);
 Route::get('/Delete/{id}',[PromotionController::class,'delete']);
 
+// session controller
 Route::post('sessionDelete',[SessionController::class,'sessionDelete']);
+
+// search controller
 Route::get('search',[SearchController::class,'search']);
 Route::get('searchStudent/{id}',[SearchController::class,'searchStudent']);
 
+// student controller
 Route::get('/student/index',[StudentsController::class,'index']);
 Route::get('/student/create/{id}',[StudentsController::class,'create']);
 Route::post('/student/store',[StudentsController::class,'store']);

@@ -62,11 +62,11 @@ class StudentsController extends Controller
             'Email' => $request->email,
 
         ]);
-    $url="Edit/".$request->id;
+    $url="Edit/".$request->idPromotion;
         return redirect($url)->with("status","promotion has been updated");
     }
 
-    
+
 //delete : delete data from db
     public function destroy($id,$iid)
     {

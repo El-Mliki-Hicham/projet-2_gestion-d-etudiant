@@ -33,7 +33,7 @@
              {{$message}}
              @enderror
              </div>
-
+<input type="hidden" name="idPromotion" value="{{$item->PromotionID}}">
         <div class="form-group">
             <button type="submit" class="btn btn-info btn-block">Ajouter</button>
            </div>

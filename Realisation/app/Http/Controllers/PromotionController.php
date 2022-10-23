@@ -42,6 +42,8 @@ class PromotionController extends Controller
         $promotion = Promotion::where('Id_promotion',$id)->get();
         return view("promotion.edit",compact('promotion','Student'));
     }
+
+
 //delete : delete data from db
     public function delete($id){
        $promotion =  Promotion::where("Id_promotion",$id)->delete();
@@ -62,39 +64,6 @@ class PromotionController extends Controller
         }
 
 
-// search : live search in db
-    public function search(Request $request){
-        if($request->ajax()){
-            $input = $request->key;
-        $output="";
-        $Promotion=Promotion::where('Name_promotion','like','%'.$input."%")
-            ->orWhere('Id_promotion','like','%'.$input."%")
-        ->get();
-        if($Promotion)
-        {
-        foreach ($Promotion as $promotion) {
-        $output.='<tr>
-        <td>'.$promotion->Id_promotion.'</td>
-        <td>'.$promotion->Name_promotion.'</td>
-        <td>
-        <a href="Edit/'.$promotion->Id_promotion.'" class="settings" title="Edit" data-toggle="tooltip"><i class="fa-regular fa-pen-to-square"></i></a>
-        <a href="Delete/'.$promotion->Id_promotion.'" class="delete" title="Delete" data-toggle="tooltip"><i class="fa-solid fa-trash"></i></a>
-        <td>
-
-        </tr>';
-        }
-        return Response($output);
-           }
-           }
-        }
-
-//sessionDelete : delete session key
-    public function sessionDelete(Request $request){
-         if($request->post()){
-        $request->session()->forget("status");
-         return back();
-        }
-    }
 }
 
 

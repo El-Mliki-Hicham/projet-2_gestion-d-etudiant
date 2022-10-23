@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\PromotionController;
+use App\Http\Controllers\SearchController;
+use App\Http\Controllers\SessionController;
 use App\Http\Controllers\StudentsController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,9 +28,9 @@ Route::get('/Edit/{id}',[PromotionController::class,'edit']);
 Route::post('/update/{id}',[PromotionController::class,'update']);
 Route::get('/Delete/{id}',[PromotionController::class,'delete']);
 
-Route::get('search',[PromotionController::class,'search']);
-Route::post('sessionDelete',[PromotionController::class,'sessionDelete']);
-Route::get('searchStudent/{id}',[StudentsController::class,'searchStudent']);
+Route::post('sessionDelete',[SessionController::class,'sessionDelete']);
+Route::get('search',[SearchController::class,'search']);
+Route::get('searchStudent/{id}',[SearchController::class,'searchStudent']);
 
 Route::get('/student/index',[StudentsController::class,'index']);
 Route::get('/student/create/{id}',[StudentsController::class,'create']);

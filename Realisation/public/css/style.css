@@ -463,7 +463,7 @@ pre {
       max-width: 960px; } }
   @media (min-width: 1200px) {
     .container {
-      max-width: 1140px; } }
+      } }
 
 .container-fluid {
   width: 100%;
@@ -6734,7 +6734,7 @@ button.bg-dark:focus {
   padding-left: 1rem !important; }
 
 .p-4 {
-  padding: 1.5rem !important; 
+  padding: 1.5rem !important;
   margin-bottom: 59px !important;
 }
 .pt-4,

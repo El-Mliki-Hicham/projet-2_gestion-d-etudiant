@@ -29,7 +29,7 @@ class StudentsController extends Controller
         $request->validate([
             'firt_name'=>[ 'string', 'max:255'],
             'last_name'=>['string', 'max:255'],
-            'email'=>['email']
+            'email'=>['email','unique:students','email']
         ]);
 
         $Student=new Student();

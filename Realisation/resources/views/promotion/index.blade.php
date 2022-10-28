@@ -20,9 +20,9 @@
 
 <!doctype html>
 <html lang="en">
- 
+
 <body>
-   
+
 <script>
 $(document).ready(function(){
 	$('[data-toggle="tooltip"]').tooltip();
@@ -35,7 +35,7 @@ $(document).ready(function(){
     <div class="titleDiv">
     <p><i class="fa-solid fa-user-graduate iconStudent"> </i></p>
     <h1 class="titleGestion">Gestion des apprenants</h1>
-    		
+
     </div>
     <div class="card cadre-search">
         <div class="card-body">
@@ -47,14 +47,14 @@ $(document).ready(function(){
             </div>
             <div class="col-sm-8 divAdd" >
             <a href="create">
-                <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
+                <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Ajouter promotion</button>
             </a>
             </div>
         </div>
       </div>
     <div class="table-responsive">
         <div class="table-wrapper">
-           
+
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>
@@ -69,19 +69,19 @@ $(document).ready(function(){
                         <td scope="row">{{$item->Id_promotion}}</td>
                         <td>{{$item->Name_promotion}}</td>
                         <td>
-    
+
                     <a href="Edit/{{$item->Id_promotion}}" class="settings" title="Edit" data-toggle="tooltip"><i class="fa-regular fa-pen-to-square"></i></a>
                     <a href="Delete/{{$item->Id_promotion}}" class="delete" title="Delete" data-toggle="tooltip"><i class="fa-solid fa-trash"></i></a>
                         </td>
                 @empty
-        
+
                 @endforelse
-                   </tr>                                     
+                   </tr>
                 </tbody>
             </table>
             <script src="js/search.js"></script>
-           
+
         </div>
-    </div>        
-</div>     
+    </div>
+</div>
 </body>
